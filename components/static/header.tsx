@@ -5,9 +5,11 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 
 const Header = () => {
+  const { data: session } = useSession();
+  console.log(session);
   return (
     <>
-      <div className="w-full h-12 px-4 flex items-center justify-between overflow-hidden bg-[#131313]">
+      <div className="w-full h-[50%] px-4 flex items-center justify-between overflow-hidden bg-[#131313]">
         <div>
           <Image src="/klipps.svg" alt="img" height={80} width={100} />
         </div>
@@ -29,7 +31,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-12 px-4 flex items-center justify-between overflow-hidden bg-[#444444]">
+      <div className="w-full h-[50%] px-4 flex items-center justify-between overflow-hidden bg-[#444444]">
         <div className="flex items-center space-x-4">
           <div className="bg-[#131313] py-[8.5px] px-[10px] rounded-sm text-white text-xs font-bold uppercase">
             Home

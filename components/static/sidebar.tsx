@@ -38,6 +38,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
           <div className="flex flex-col">
             {menus?.map((menu, i) => (
               <div
+                key={i}
                 className={` ${
                   menu?.margin && 'mt-5'
                 } group flex items-center text-sm  gap-3.5 p-2 hover:bg-[#444444] cursor-pointer rounded-md`}

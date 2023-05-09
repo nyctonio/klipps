@@ -111,12 +111,12 @@ const Page = () => {
                 <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">
-                      Command was run with root privileges. I'm sure about that.
+                      Command was run with root privileges. Im sure about that.
                     </span>
                   </div>
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">
-                      I've update the description so it's more obviously now
+                      Ive update the description so its more obviously now
                     </span>
                   </div>
                   <div>
@@ -126,7 +126,7 @@ const Page = () => {
                   </div>
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                      Check the line above (it ends with a # so, I'm running it
+                      Check the line above (it ends with a # so, Im running it
                       as root )<pre># npm install -g @vue/devtools</pre>
                     </span>
                   </div>
@@ -143,7 +143,7 @@ const Page = () => {
                 <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
-                      Any updates on this issue? I'm getting the same error when
+                      Any updates on this issue? Im getting the same error when
                       trying to install devtools. Thanks
                     </span>
                   </div>
@@ -160,7 +160,7 @@ const Page = () => {
                 <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                      Thanks for your message David. I thought I'm alone with
+                      Thanks for your message David. I thought Im alone with
                       this issue. Please, ? the issue to support it :)
                     </span>
                   </div>
@@ -238,9 +238,9 @@ const Page = () => {
                       className="h-6 w-6 text-gray-600"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
                       ></path>
                     </svg>
@@ -257,15 +257,15 @@ const Page = () => {
                       className="h-6 w-6 text-gray-600"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
                       ></path>
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
                       ></path>
                     </svg>
@@ -282,9 +282,9 @@ const Page = () => {
                       className="h-6 w-6 text-gray-600"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       ></path>
                     </svg>

@@ -19,10 +19,10 @@ export default function RootLayout({
       <body>
         <Providers>
           <div className="font-sans bg-[#585858] overflow-hidden h-screen w-screen">
-            <div className="h-[11.4%]">
+            <div className="h-[12%]">
               <Header />
             </div>
-            <div className="h-[88.6%] w-full">
+            <div className="h-[88%] w-full">
               <Sidebar>{children}</Sidebar>
             </div>
           </div>
