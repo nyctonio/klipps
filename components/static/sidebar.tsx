@@ -7,21 +7,23 @@ import { TbReportAnalytics } from 'react-icons/tb';
 import { AiOutlineUser, AiOutlineHeart } from 'react-icons/ai';
 import { FiMessageSquare, FiFolder, FiShoppingCart } from 'react-icons/fi';
 import Link from 'next/link';
+import { Toaster } from 'react-hot-toast';
 
 const Sidebar = ({ children }: { children: React.ReactNode }) => {
   const menus = [
-    { name: 'Account', link: '/', icon: MdOutlineDashboard },
-    { name: 'Channel', link: '/', icon: AiOutlineUser },
-    { name: 'Messages', link: '/', icon: FiMessageSquare },
-    { name: 'Views', link: '/', icon: TbReportAnalytics, margin: true },
+    { name: 'Home', link: '/', icon: MdOutlineDashboard },
+    { name: 'Channel', link: '/account', icon: AiOutlineUser },
+    { name: 'Messages', link: '/account', icon: FiMessageSquare },
+    { name: 'Views', link: '/account', icon: TbReportAnalytics, margin: true },
     // { name: 'File Manager', link: '/', icon: FiFolder },
     // { name: 'Cart', link: '/', icon: FiShoppingCart },
-    { name: 'Saved', link: '/', icon: AiOutlineHeart, margin: true },
-    { name: 'Settings', link: '/', icon: RiSettings4Line },
+    { name: 'Saved', link: '/account', icon: AiOutlineHeart, margin: true },
+    { name: 'Settings', link: '/account', icon: RiSettings4Line },
   ];
   const [open, setOpen] = useState(true);
   return (
     <section className="flex h-full gap-6">
+      <Toaster />
       <div
         className={`bg-[#0e0e0e] flex flex-col pb-4 ${
           open ? 'w-64' : 'w-16'
@@ -37,7 +39,8 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
         <div className="mt-4 flex h-full flex-col justify-between gap-4 relative">
           <div className="flex flex-col">
             {menus?.map((menu, i) => (
-              <div
+              <Link
+                href={menu.link}
                 key={i}
                 className={` ${
                   menu?.margin && 'mt-5'
@@ -58,7 +61,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
                 >
                   {menu?.name}
                 </h2>
-              </div>
+              </Link>
             ))}
           </div>
           <div>

@@ -1,60 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
-const Video = () => {
-  return (
-    <>
-      <div>
-        <video
-          style={{
-            width: '100%',
-            height: '100%',
-          }}
-          controls
-          src="https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164"
-        ></video>
-      </div>
-    </>
-  );
-};
-
-const Card = () => {
-  return (
-    <>
-      <div className="flex flex-col items-center text-white h-[500px] rounded-lg p-4 pb-2 border-black border-[1.5px] bg-[#131313]">
-        <Video />
-
-        <div className="w-full flex flex-col items-start mt-4">
-          <div className="w-full flex justify-between">
-            <div className="flex space-x-2">
-              <div className="bg-[#444444] py-[8.5px] px-[10px] rounded-sm text-white text-xs font-bold uppercase">
-                Upvote
-              </div>
-              <div className="bg-[#444444] py-[8.5px] px-[10px] rounded-sm text-white text-xs font-bold uppercase">
-                Downvote
-              </div>
-            </div>
-            <div>
-              <div className="bg-red-600 py-[8.5px] px-[10px] rounded-sm text-white text-xs font-bold uppercase">
-                @channel - Subscribe
-              </div>
-            </div>
-          </div>
-          <dl>
-            <div className="mt-1">Title of the video</div>
-          </dl>
-          <dl>
-            <div className="text-xs mt-1">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-              voluptas voluptate perspiciatis ab quisquam possimus natus, modi
-              magnam?
-            </div>
-          </dl>
-        </div>
-      </div>
-    </>
-  );
-};
+import Card from '@/components/home/card';
 
 const Notifications = () => {
   return (
@@ -212,20 +158,205 @@ const Notifications = () => {
   );
 };
 
-function Page() {
+const Trending = () => {
+  return (
+    <div className="bg-[#0e0e0e] rounded-lg overflow-hidden shadow-lg">
+      <div className="flex">
+        <div className="flex-1 m-2">
+          <h2 className="px-4 py-2 text-xl w-48 font-semibold text-white">
+            Germany trends
+          </h2>
+        </div>
+        <div className="flex-1 px-4 py-2 m-2">
+          <a
+            href=""
+            className=" text-2xl rounded-full text-white hover:bg-gray-800 hover:text-blue-300 float-right"
+          >
+            <svg
+              className="m-2 h-6 w-6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+              <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <hr className="border-gray-800" />
+
+      <div className="flex">
+        <div className="flex-1">
+          <p className="px-4 ml-2 mt-3 w-48 text-xs text-gray-400">
+            1 . Trending
+          </p>
+          <h2 className="px-4 ml-2 w-48 font-bold text-white">#Microsoft363</h2>
+          <p className="px-4 ml-2 mb-3 w-48 text-xs text-gray-400">
+            5,466 Tweets
+          </p>
+        </div>
+        <div className="flex-1 px-4 py-2 m-2">
+          <a
+            href=""
+            className=" text-2xl rounded-full text-gray-400 hover:bg-gray-800 hover:text-blue-300 float-right"
+          >
+            <svg
+              className="m-2 h-5 w-5"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <hr className="border-gray-800" />
+
+      <div className="flex">
+        <div className="flex-1">
+          <p className="px-4 ml-2 mt-3 w-48 text-xs text-gray-400">
+            2 . Politics . Trending
+          </p>
+          <h2 className="px-4 ml-2 w-48 font-bold text-white">#HI-Fashion</h2>
+          <p className="px-4 ml-2 mb-3 w-48 text-xs text-gray-400">
+            8,464 Tweets
+          </p>
+        </div>
+        <div className="flex-1 px-4 py-2 m-2">
+          <a
+            href=""
+            className=" text-2xl rounded-full text-gray-400 hover:bg-gray-800 hover:text-blue-300 float-right"
+          >
+            <svg
+              className="m-2 h-5 w-5"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <hr className="border-gray-800" />
+
+      <div className="flex">
+        <div className="flex-1">
+          <p className="px-4 ml-2 mt-3 w-48 text-xs text-gray-400">
+            3 . Rock . Trending
+          </p>
+          <h2 className="px-4 ml-2 w-48 font-bold text-white">#Ferrari</h2>
+          <p className="px-4 ml-2 mb-3 w-48 text-xs text-gray-400">
+            5,586 Tweets
+          </p>
+        </div>
+        <div className="flex-1 px-4 py-2 m-2">
+          <a
+            href=""
+            className=" text-2xl rounded-full text-gray-400 hover:bg-gray-800 hover:text-blue-300 float-right"
+          >
+            <svg
+              className="m-2 h-5 w-5"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <hr className="border-gray-800" />
+
+      <div className="flex">
+        <div className="flex-1">
+          <p className="px-4 ml-2 mt-3 w-48 text-xs text-gray-400">
+            4 . Auto Racing . Trending
+          </p>
+          <h2 className="px-4 ml-2 w-48 font-bold text-white">#vettel</h2>
+          <p className="px-4 ml-2 mb-3 w-48 text-xs text-gray-400">
+            9,416 Tweets
+          </p>
+        </div>
+        <div className="flex-1 px-4 py-2 m-2">
+          <a
+            href=""
+            className=" text-2xl rounded-full text-gray-400 hover:bg-gray-800 hover:text-blue-300 float-right"
+          >
+            <svg
+              className="m-2 h-5 w-5"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <hr className="border-gray-800" />
+
+      <div className="flex">
+        <div className="flex-1 p-4">
+          <h2 className="px-4 ml-2 w-48 font-bold text-blue-400">Show more</h2>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+async function Page() {
+  const videoData = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/videos`,
+    { next: { revalidate: 15 } }
+  ).then((res) => res.json());
+  console.log('video data', videoData);
+
   return (
     <>
       <div className="text-black overflow-y-scroll h-full w-full flex">
         {/*  create a card with video and description */}
-        <div className="w-[55%]">
-          <div className="w-full space-y-4">
-            <Card />
-            <Card />
-            <Card />
+        <div className="w-[75%]">
+          <div className="w-full grid grid-cols-2">
+            {videoData.map(
+              (video: {
+                id: string;
+                title: string;
+                description: string;
+                url: string;
+                upvotes: number;
+                downvotes: number;
+                user: {
+                  id: string;
+                  name: string;
+                  image: string;
+                };
+              }) => (
+                <Card key={video.id} {...video} />
+              )
+            )}
           </div>
         </div>
-        <div className="h-full w-[45%] px-4">
-          <Notifications />
+        <div className="h-full w-[25%]">
+          <Trending />
         </div>
       </div>
     </>
