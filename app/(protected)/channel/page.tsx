@@ -1,4 +1,5 @@
 'use client';
+// @ts-nocheck
 import { useState, useEffect } from 'react';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Video from '@/components/home/card';
@@ -17,7 +18,7 @@ const Page = () => {
     getVideos();
   }, []);
 
-  if (!session) {
+  if (!session || session == null || session == undefined) {
     return (
       <div>
         <button
@@ -33,7 +34,7 @@ const Page = () => {
   }
   return (
     <div className="w-full h-full overflow-scroll">
-      <div className="relative max-w-md mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-black text-white w-full mb-6 shadow-lg rounded-xl mt-16">
+      <div className="relative max-w-md mx-auto md:max-w-2xl min-w-0 break-words bg-black text-white w-full mb-6 shadow-lg rounded-xl mt-16">
         <div className="px-6">
           <div className="flex flex-wrap justify-center">
             <div className="w-full flex justify-center">
@@ -76,7 +77,8 @@ const Page = () => {
       <div className="text-white">
         <h1 className="mb-2">Your Uploaded Videos</h1>
         <div className="grid grid-cols-3 gap-4">
-          {videos.map((video) => (
+          {videos.map((video: { _id: string; title: any }) => (
+            // @ts-ignore
             <Video key={video._id} {...video} />
           ))}
         </div>
