@@ -28,16 +28,7 @@ const Header = () => {
                 Sign Out
               </button>
             ) : (
-              <Link href="/api/auth/signin">
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    signIn('google', { callbackUrl: `/` });
-                  }}
-                >
-                  Sign In
-                </button>
-              </Link>
+              <Link href="/login">Sign In</Link>
             )}
           </div>
         </div>

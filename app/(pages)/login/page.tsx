@@ -16,7 +16,7 @@ const Index = () => {
   const [email, setEmail] = useState('');
   const [showTopLoader, setShowTopLoader] = useState(false);
   return (
-    <div className="h-screen">
+    <div className="h-screen bg-white">
       {showTopLoader && <TopBarProgress />}
       <div className="flex font-bold h-full">
         <div className="flex flex-row h-full w-full">
@@ -38,7 +38,7 @@ const Index = () => {
               </button> */}
             </div>
             <p className="text-white font-bold">
-              Klipps Pvt Ltd © 2022 Company
+              Klipps Pvt Ltd © 2023 Company
             </p>
           </div>
 

@@ -1,15 +1,15 @@
 'use client';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import Link from 'next/link';
 
-const Video = ({ src }: { src: string }) => {
+const Video = ({ src, height = '250px' }: { src: string; height?: string }) => {
   return (
     <>
-      <div className="w-full h-full">
+      <div>
         <video
           style={{
-            width: '100%',
-            height: '100%',
+            height: height,
           }}
           controls
           src={src}
@@ -27,6 +27,7 @@ export default function Card({
   upvotes,
   downvotes,
   user,
+  height,
 }: {
   id: string;
   title: string;
@@ -39,6 +40,7 @@ export default function Card({
     name: string;
     image: string;
   };
+  height?: string;
 }) {
   const [votes, setVotes] = useState<{
     upvotes: number;
@@ -53,7 +55,7 @@ export default function Card({
     if (votes.status == '' || votes.status == 'downvote') {
       setVotes({
         upvotes: votes.upvotes + 1,
-        downvotes: votes.downvotes - 1,
+        downvotes: votes.downvotes,
         status: 'upvote',
       });
       const res = await fetch('/api/upvote', {
@@ -77,7 +79,7 @@ export default function Card({
     if (votes.status == '' || votes.status == 'upvote') {
       setVotes({
         upvotes: votes.upvotes - 1,
-        downvotes: votes.downvotes + 1,
+        downvotes: votes.downvotes,
         status: 'downvote',
       });
       const res = await fetch('/api/downvote', {
@@ -100,9 +102,13 @@ export default function Card({
 
   return (
     <>
-      <div className="flex mb-2 mr-2 h-[360px] w-[400px] flex-col items-center text-white  rounded-lg p-4 pb-2 border-black border-[1.5px] bg-[#131313]">
-        <Video src={url} />
-        <div className="w-full flex flex-col items-start mt-4 mb-3">
+      <div
+        className={`flex mb-2 mr-2 ${
+          height ? height : 'min-h-[380px] max-h-[380px]'
+        }  overflow-hidden  flex-col items-center text-white  rounded-lg p-4 pb-2 border-black border-[1.5px] bg-[#131313]`}
+      >
+        <Video height={height} src={url} />
+        <div className="w-full flex flex-col items-start mt-2 mb-3">
           <div className="w-full flex justify-between">
             <div className="flex space-x-2">
               <button
@@ -131,16 +137,16 @@ export default function Card({
               </button>
             </div>
           </div>
-          <dl>
-            <div className="mt-1">{title}</div>
-          </dl>
-          <dl>
+          <Link href={`/video/${id}`} className="hover:text-blue-400 mt-1">
+            {title}
+          </Link>
+          <div>
             <div className="text-xs mt-1">
               {description.length > 100
                 ? description.substring(0, 100) + '...'
                 : description}
             </div>
-          </dl>
+          </div>
         </div>
       </div>
     </>

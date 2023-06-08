@@ -1,96 +1,9 @@
-'use client';
 import Header from '@/components/static/header';
-import { useEffect, useState } from 'react';
-const Video = () => {
-  return (
-    <>
-      <div className="w-full pt-0">
-        <video
-          style={{
-            width: '100%',
-            height: '100%',
-          }}
-          controls
-          src="https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164"
-        ></video>
-      </div>
-    </>
-  );
-};
-
-const Card = () => {
-  return (
-    <>
-      <div className="flex flex-col items-center pb-8 text-white p-4  border-black border-[1.5px] bg-[#131313]">
-        <Video />
-        <div className="w-full flex flex-col items-start mt-4">
-          <div className="w-full flex justify-between">
-            <div className="flex space-x-2">
-              <div className="bg-[#444444] py-[8.5px] px-[10px] rounded-sm text-white text-xs font-bold uppercase">
-                Upvote
-              </div>
-              <div className="bg-[#444444] py-[8.5px] px-[10px] rounded-sm text-white text-xs font-bold uppercase">
-                Downvote
-              </div>
-            </div>
-            <div>
-              <div className="bg-red-600 py-[8.5px] px-[10px] rounded-sm text-white text-xs font-bold uppercase">
-                @channel - Subscribe
-              </div>
-            </div>
-          </div>
-          <dl>
-            <div className="mt-1">Title of the video</div>
-          </dl>
-          <dl>
-            <div className="text-xs mt-1">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-              voluptas voluptate perspiciatis ab quisquam possimus natus, modi
-              magnam?
-            </div>
-          </dl>
-        </div>
-      </div>
-    </>
-  );
-};
+import Card from '@/components/home/card';
 
 const Chat = () => {
   return (
     <div className="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
-      <div className="chat-message">
-        <div className="flex items-end">
-          <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-            <div>
-              <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                Can be verified on any platform using docker
-              </span>
-            </div>
-          </div>
-          <img
-            src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
-            alt="My profile"
-            className="w-6 h-6 rounded-full order-1"
-          />
-        </div>
-      </div>
-      <div className="chat-message">
-        <div className="flex items-end justify-end">
-          <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
-            <div>
-              <span className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
-                Your error message says permission denied, npm global installs
-                must be given root privileges.
-              </span>
-            </div>
-          </div>
-          <img
-            src="https://images.unsplash.com/photo-1590031905470-a1a1feacbb0b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
-            alt="My profile"
-            className="w-6 h-6 rounded-full order-2"
-          />
-        </div>
-      </div>
       <div className="chat-message">
         <div className="flex items-end">
           <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
@@ -160,6 +73,11 @@ const Chat = () => {
       <div className="chat-message">
         <div className="flex items-end justify-end">
           <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
+            <div>
+              <span className="px-4 py-2 rounded-lg inline-block bg-blue-600 text-white ">
+                Are you using sudo?
+              </span>
+            </div>
             <div>
               <span className="px-4 py-2 rounded-lg inline-block bg-blue-600 text-white ">
                 Are you using sudo?
@@ -295,16 +213,17 @@ const Chat = () => {
   );
 };
 
-const Page = () => {
-  const [hydrated, setHydrated] = useState(false);
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
-  if (!hydrated) return <div>loading...</div>;
+const Page = async (props: any) => {
+  // console.log('props', props);
+  const videoData = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/video/${props.params.id}`,
+    { cache: 'no-cache' }
+  ).then((res) => res.json());
+  console.log('videoData', videoData);
   return (
     <div className="flex w-full h-full">
       <div className="w-[70%]">
-        <Card />
+        <Card height={'100%'} {...videoData} />
       </div>
       <div className="w-[30%]">
         <Chat />

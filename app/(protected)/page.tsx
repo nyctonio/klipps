@@ -326,7 +326,7 @@ const Trending = () => {
 async function Page() {
   const videoData = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/videos`,
-    { next: { revalidate: 15 } }
+    { cache: 'no-cache' }
   ).then((res) => res.json());
   console.log('video data', videoData);
 
