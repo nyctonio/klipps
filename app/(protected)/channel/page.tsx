@@ -40,6 +40,7 @@ const Page = () => {
             <div className="w-full flex justify-center">
               <div className="relative">
                 <img
+                  // @ts-ignore
                   src={session?.user.image}
                   className="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"
                 />
@@ -65,10 +66,12 @@ const Page = () => {
           </div>
           <div className="text-center mt-2">
             <h3 className="text-2xl font-bold leading-normal mb-1">
+              {/* @ts-ignore */}
               {session?.user.name}
             </h3>
             <div className="text-xs mt-0  pb-10 font-bold uppercase">
               <i className="fas fa-map-marker-alt mr-2  opacity-75"></i>
+              {/* @ts-ignore */}
               {session?.user.email}
             </div>
           </div>
