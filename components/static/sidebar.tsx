@@ -12,13 +12,18 @@ import { Toaster } from 'react-hot-toast';
 const Sidebar = ({ children }: { children: React.ReactNode }) => {
   const menus = [
     { name: 'Home', link: '/', icon: MdOutlineDashboard },
-    { name: 'Channel', link: '/account', icon: AiOutlineUser },
-    { name: 'Messages', link: '/account', icon: FiMessageSquare },
-    { name: 'Views', link: '/account', icon: TbReportAnalytics, margin: true },
+    { name: 'Channel', link: '/channel', icon: AiOutlineUser },
+    // { name: 'Messages', link: '/account', icon: FiMessageSquare },
+    {
+      name: 'Publish',
+      link: '/account',
+      icon: TbReportAnalytics,
+      margin: true,
+    },
     // { name: 'File Manager', link: '/', icon: FiFolder },
     // { name: 'Cart', link: '/', icon: FiShoppingCart },
-    { name: 'Saved', link: '/account', icon: AiOutlineHeart, margin: true },
-    { name: 'Settings', link: '/account', icon: RiSettings4Line },
+    // { name: 'Saved', link: '/account', icon: AiOutlineHeart, margin: true },
+    // { name: 'Settings', link: '/account', icon: RiSettings4Line },
   ];
   const [open, setOpen] = useState(true);
   return (

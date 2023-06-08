@@ -18,23 +18,34 @@ const Header = () => {
             <Notifications />
           </div>
           <div className="text-white font-bold uppercase hover:shadow-[1px_1px_0px_0px_rgba(0,0,0)] bg-[#444444] cursor-pointer px-3 py-[5px] rounded-sm text-xs">
-            <Link href="/api/auth/signin">
+            {session ? (
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  signIn('google', { callbackUrl: `/` });
+                  signOut();
                 }}
               >
-                Sign In
+                Sign Out
               </button>
-            </Link>
+            ) : (
+              <Link href="/api/auth/signin">
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    signIn('google', { callbackUrl: `/` });
+                  }}
+                >
+                  Sign In
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
       <div className="w-full h-[50%] px-4 flex items-center justify-between overflow-hidden bg-[#444444]">
         <div className="flex items-center space-x-4">
           <div className="bg-[#131313] py-[8.5px] px-[10px] rounded-sm text-white text-xs font-bold uppercase">
-            Home
+            <Link href={'/'}>Home</Link>
           </div>
           <div className="bg-[#131313] py-[8.5px] px-[10px] rounded-sm text-white text-xs font-bold">
             @channel
